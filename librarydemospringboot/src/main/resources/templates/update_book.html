@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <title>Library Management- Add</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white" href="#">Library Management System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Books</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Authors</a>
+                </li><li class="nav-item">
+                <a class="nav-link text-white" href="#">Edits</a>
+            </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <h1 class="mt-5">Library Management System</h1>
+    <hr>
+    <h2>Manage Books</h2>
+
+    <form action="#" th:action="@{/saveBook}" th:object="${Book}" method="POST">
+
+        <!-- hidden form field to handle updates -->
+        <input type="hidden" th:field="*{bookId}"/>
+
+        <div class="mb-3">
+            <label for="title" class="form-label">Book Title</label>
+            <input type="text" class="form-control" id="title" th:field="*{title}" >
+        </div>
+
+        <div class="mb-3">
+            <label for="author" class="form-label">Book Author</label>
+            <input type="text" class="form-control" id="author" th:field="*{author}" >
+        </div>
+
+        <div class="mb-3">
+            <label for="id" class="form-label">Book ID</label>
+            <input type="text" class="form-control" id="id" th:field="*{bookId}" >
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update Book</button>
+    </form>
+    <hr>
+    <a th:href = "@{/}"> Return to Book List</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
