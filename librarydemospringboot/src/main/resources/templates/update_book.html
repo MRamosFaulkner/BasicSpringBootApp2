@@ -43,6 +43,7 @@
         <div class="mb-3">
             <label for="title" class="form-label">Book Title</label>
             <input type="text" class="form-control" id="title" th:field="*{title}" >
+            <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="text-danger"></span>
         </div>
 
         <div class="mb-3">

@@ -1,9 +1,9 @@
 package com.example.librarydemospringboot.model;
 
 import jakarta.persistence.*;
-
-import java.util.ArrayList;
-import java.util.List;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
+import org.antlr.v4.runtime.misc.NotNull;
 
 @Entity
 @Table(name= "book")
@@ -15,9 +15,15 @@ public class Book {
         private Long bookId;
 
         @Column(name = "title")
+        @NotNull
+        @NotEmpty
+        @Size(min = 3, max = 30, message = "Title must be between 3 and 30")
         private String title;
 
         @Column(name = "author")
+        @NotNull
+        @NotEmpty
+        @Size(min = 3, max = 30, message = "Title must be between 3 and 30")
         private String author;
 
         //@OneToMany(cascade = CascadeType.ALL)//Saves
